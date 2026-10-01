@@ -1,0 +1,13 @@
+# Line endings, made deterministic so the repo behaves identically on any machine.
+
+* text=auto
+
+# Windows PowerShell script - keep CRLF so it runs unmodified when cloned
+*.ps1 text eol=crlf
+
+# Prose and the issue form - LF
+*.md  text eol=lf
+*.yml text eol=lf
+
+# WinDbg capture logs are evidence: preserve them byte-for-byte, no EOL rewriting
+analysis/*.txt -text
