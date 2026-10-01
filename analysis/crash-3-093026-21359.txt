@@ -1,0 +1,397 @@
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+Deferred                                       srv*C:\ProgramData\Dbg\sym*https://msdl.microsoft.com/download/symbols
+
+************* Preparing the environment for Debugger Extensions Gallery repositories **************
+   ExtensionRepository : Implicit
+   UseExperimentalFeatureForNugetShare : true
+   AllowNugetExeUpdate : true
+   NonInteractiveNuget : true
+   AllowNugetMSCredentialProviderInstall : true
+   AllowParallelInitializationOfLocalRepositories : true
+
+   -- Configuring repositories
+      ----> Repository : LocalInstalled, Enabled: true
+      ----> Repository : UserExtensions, Enabled: true
+
+>>>>>>>>>>>>> Preparing the environment for Debugger Extensions Gallery repositories completed, duration 0.000 seconds
+
+************* Waiting for Debugger Extensions Gallery to Initialize **************
+
+>>>>>>>>>>>>> Waiting for Debugger Extensions Gallery to Initialize completed, duration 0.375 seconds
+   ----> Repository : UserExtensions, Enabled: true, Packages count: 0
+   ----> Repository : LocalInstalled, Enabled: true, Packages count: 46
+
+Microsoft (R) Windows Debugger Version 10.0.29617.1000 AMD64
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+
+Loading Dump File [dumps\093026-21359-01.dmp]
+Mini Kernel Dump File: Only registers and stack trace are available
+
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+Deferred                                       srv*C:\ProgramData\Dbg\sym*https://msdl.microsoft.com/download/symbols
+Symbol search path is: srv*C:\ProgramData\Dbg\sym*https://msdl.microsoft.com/download/symbols
+Executable search path is: 
+Windows 10 Kernel Version 26100 MP (20 procs) Free x64
+Product: WinNt, suite: TerminalServer SingleUserTS
+Edition build lab: 26100.1.amd64fre.ge_release.240331-1435
+Kernel base = 0xfffff805`b2e00000 PsLoadedModuleList = 0xfffff805`b3cf53e0
+Debug session time: Wed Sep 30 19:46:04.048 2026 (UTC - 7:00)
+System Uptime: 0 days 0:19:39.948
+Loading Kernel Symbols
+...............................................................
+................................................................
+................................................................
+....................................................
+Loading User Symbols
+
+Loading unloaded module list
+...................
+For analysis of this file, run !analyze -v
+10: kd> cdb: Reading initial command '!analyze -v; q'
+Loading Kernel Symbols
+...............................................................
+................................................................
+................................................................
+....................................................
+Loading User Symbols
+
+Loading unloaded module list
+...................
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+SYSTEM_THREAD_EXCEPTION_NOT_HANDLED (7e)
+This is a very common BugCheck.  Usually the exception address pinpoints
+the driver/function that caused the problem.  Always note this address
+as well as the link date of the driver/image that contains this address.
+Arguments:
+Arg1: ffffffffc0000005, The exception code that was not handled
+Arg2: fffff80569340619, The address that the exception occurred at
+Arg3: fffffe0adaf3e648, Exception Record Address
+Arg4: fffffe0adaf3de60, Context Record Address
+
+Debugging Details:
+------------------
+
+*** WARNING: Unable to verify timestamp for BEDaisy.sys
+
+KEY_VALUES_STRING: 1
+
+    Key  : AV.Type
+    Value: Read
+
+    Key  : Analysis.CPU.mSec
+    Value: 2453
+
+    Key  : Analysis.Elapsed.mSec
+    Value: 2986
+
+    Key  : Analysis.IO.Other.Mb
+    Value: 0
+
+    Key  : Analysis.IO.Read.Mb
+    Value: 1
+
+    Key  : Analysis.IO.Write.Mb
+    Value: 0
+
+    Key  : Analysis.Init.CPU.mSec
+    Value: 656
+
+    Key  : Analysis.Init.Elapsed.mSec
+    Value: 1465
+
+    Key  : Analysis.Memory.CommitPeak.Mb
+    Value: 93
+
+    Key  : Analysis.Version.DbgEng
+    Value: 10.0.29617.1000
+
+    Key  : Analysis.Version.Description
+    Value: 10.2604.29.1 amd64fre
+
+    Key  : Analysis.Version.Ext
+    Value: 1.2604.29.1
+
+    Key  : Bugcheck.Code.LegacyAPI
+    Value: 0x1000007e
+
+    Key  : Bugcheck.Code.TargetModel
+    Value: 0x1000007e
+
+    Key  : Failure.Bucket
+    Value: AV_BEDaisy!unknown_function
+
+    Key  : Failure.Exception.Code
+    Value: 0xc0000005
+
+    Key  : Failure.Exception.IP.Address
+    Value: 0xfffff80569340619
+
+    Key  : Failure.Exception.IP.Module
+    Value: BEDaisy
+
+    Key  : Failure.Exception.IP.Offset
+    Value: 0x1720619
+
+    Key  : Failure.Exception.Record
+    Value: 0xfffffe0adaf3e648
+
+    Key  : Failure.Hash
+    Value: {36b04c21-521f-babb-382f-2a12c3ddef17}
+
+    Key  : Faulting.IP.Type
+    Value: Paged
+
+    Key  : Hypervisor.Enlightenments.ValueHex
+    Value: 0x7417df84
+
+    Key  : Hypervisor.Flags.AnyHypervisorPresent
+    Value: 1
+
+    Key  : Hypervisor.Flags.ApicEnlightened
+    Value: 0
+
+    Key  : Hypervisor.Flags.ApicVirtualizationAvailable
+    Value: 1
+
+    Key  : Hypervisor.Flags.AsyncMemoryHint
+    Value: 0
+
+    Key  : Hypervisor.Flags.CoreSchedulerRequested
+    Value: 0
+
+    Key  : Hypervisor.Flags.CpuManager
+    Value: 1
+
+    Key  : Hypervisor.Flags.DeprecateAutoEoi
+    Value: 1
+
+    Key  : Hypervisor.Flags.DynamicCpuDisabled
+    Value: 1
+
+    Key  : Hypervisor.Flags.Epf
+    Value: 0
+
+    Key  : Hypervisor.Flags.ExtendedProcessorMasks
+    Value: 1
+
+    Key  : Hypervisor.Flags.HardwareMbecAvailable
+    Value: 1
+
+    Key  : Hypervisor.Flags.MaxBankNumber
+    Value: 0
+
+    Key  : Hypervisor.Flags.MemoryZeroingControl
+    Value: 0
+
+    Key  : Hypervisor.Flags.NoExtendedRangeFlush
+    Value: 0
+
+    Key  : Hypervisor.Flags.NoNonArchCoreSharing
+    Value: 1
+
+    Key  : Hypervisor.Flags.Phase0InitDone
+    Value: 1
+
+    Key  : Hypervisor.Flags.PowerSchedulerQos
+    Value: 0
+
+    Key  : Hypervisor.Flags.RootScheduler
+    Value: 0
+
+    Key  : Hypervisor.Flags.SynicAvailable
+    Value: 1
+
+    Key  : Hypervisor.Flags.UseQpcBias
+    Value: 0
+
+    Key  : Hypervisor.Flags.Value
+    Value: 55185662
+
+    Key  : Hypervisor.Flags.ValueHex
+    Value: 0x34a10fe
+
+    Key  : Hypervisor.Flags.VpAssistPage
+    Value: 1
+
+    Key  : Hypervisor.Flags.VsmAvailable
+    Value: 1
+
+    Key  : Hypervisor.RootFlags.AccessStats
+    Value: 1
+
+    Key  : Hypervisor.RootFlags.CrashdumpEnlightened
+    Value: 1
+
+    Key  : Hypervisor.RootFlags.CreateVirtualProcessor
+    Value: 1
+
+    Key  : Hypervisor.RootFlags.DisableHyperthreading
+    Value: 0
+
+    Key  : Hypervisor.RootFlags.HostTimelineSync
+    Value: 1
+
+    Key  : Hypervisor.RootFlags.HypervisorDebuggingEnabled
+    Value: 0
+
+    Key  : Hypervisor.RootFlags.IsHyperV
+    Value: 1
+
+    Key  : Hypervisor.RootFlags.LivedumpEnlightened
+    Value: 1
+
+    Key  : Hypervisor.RootFlags.MapDeviceInterrupt
+    Value: 1
+
+    Key  : Hypervisor.RootFlags.MceEnlightened
+    Value: 1
+
+    Key  : Hypervisor.RootFlags.Nested
+    Value: 0
+
+    Key  : Hypervisor.RootFlags.StartLogicalProcessor
+    Value: 1
+
+    Key  : Hypervisor.RootFlags.Value
+    Value: 1015
+
+    Key  : Hypervisor.RootFlags.ValueHex
+    Value: 0x3f7
+
+    Key  : WER.OS.Branch
+    Value: ge_release
+
+    Key  : WER.OS.Version
+    Value: 10.0.26100.1
+
+    Key  : WER.System.BIOSRevision
+    Value: 3.0.0.0
+
+
+BUGCHECK_CODE:  7e
+
+BUGCHECK_P1: ffffffffc0000005
+
+BUGCHECK_P2: fffff80569340619
+
+BUGCHECK_P3: fffffe0adaf3e648
+
+BUGCHECK_P4: fffffe0adaf3de60
+
+FILE_IN_CAB:  093026-21359-01.dmp
+
+TAG_NOT_DEFINED_202b:  *** Unknown TAG in analysis list 202b
+
+
+FAULTING_THREAD:  ffffe50cc9ef4480
+
+EXCEPTION_RECORD:  fffffe0adaf3e648 -- (.exr 0xfffffe0adaf3e648)
+ExceptionAddress: fffff80569340619 (BEDaisy+0x0000000001720619)
+   ExceptionCode: c0000005 (Access violation)
+  ExceptionFlags: 00000000
+NumberParameters: 2
+   Parameter[0]: 0000000000000000
+   Parameter[1]: 0000001b00000001
+Attempt to read from address 0000001b00000001
+
+CONTEXT:  fffffe0adaf3de60 -- (.cxr 0xfffffe0adaf3de60)
+rax=ae72628ae4c524d0 rbx=0000000000000000 rcx=000000000000006e
+rdx=fffff80569358e30 rsi=ffffffffffff0002 rdi=fffff805693f4e2d
+rip=fffff80569340619 rsp=fffffe0adaf3e880 rbp=0000001b00000001
+ r8=ffffffffffffffff  r9=0000000000000006 r10=0000000000010602
+r11=00000000000071c0 r12=fffe2636f0000000 r13=00000000000071c0
+r14=fffffffffcd0f124 r15=fffffffffffe884d
+iopl=0         nv up ei pl nz na po nc
+cs=0010  ss=0018  ds=002b  es=002b  fs=0053  gs=002b             efl=00050202
+BEDaisy+0x1720619:
+fffff805`69340619 66448b5d00      mov     r11w,word ptr [rbp] ss:0018:0000001b`00000001=????
+Resetting default scope
+
+BLACKBOXBSD: 1 (!blackboxbsd)
+
+
+BLACKBOXNTFS: 1 (!blackboxntfs)
+
+
+BLACKBOXPNP: 1 (!blackboxpnp)
+
+
+BLACKBOXWINLOGON: 1 (!blackboxwinlogon) (!blackboxwinlogonnotify)
+
+
+CUSTOMER_CRASH_COUNT:  1
+
+PROCESS_NAME:  System
+
+READ_ADDRESS: fffff805b3dc54d8: Unable to get MiVisibleState
+ 0000001b00000001 
+
+ERROR_CODE: (NTSTATUS) 0xc0000005 - The instruction at 0x%p referenced memory at 0x%p. The memory could not be %s.
+
+EXCEPTION_CODE_STR:  c0000005
+
+EXCEPTION_PARAMETER1:  0000000000000000
+
+EXCEPTION_PARAMETER2:  0000001b00000001
+
+EXCEPTION_STR:  0xc0000005
+
+IP_IN_PAGED_CODE: 
+BEDaisy+1720619
+fffff805`69340619 66448b5d00      mov     r11w,word ptr [rbp]
+
+STACK_TEXT:  
+fffffe0a`daf3e880 00000000`00000000     : 00000000`00000000 00000000`7e390000 fffff805`67c23783 00000000`00000000 : BEDaisy+0x1720619
+
+
+SYMBOL_NAME:  BEDaisy+1720619
+
+MODULE_NAME: BEDaisy
+
+IMAGE_NAME:  BEDaisy.sys
+
+STACK_COMMAND: .cxr 0xfffffe0adaf3de60 ; kb
+
+BUCKET_ID_FUNC_OFFSET:  1720619
+
+FAILURE_BUCKET_ID:  AV_BEDaisy!unknown_function
+
+OS_VERSION:  10.0.26100.1
+
+BUILDLAB_STR:  ge_release
+
+OSPLATFORM_TYPE:  x64
+
+OSNAME:  Windows 10
+
+FAILURE_ID_HASH:  {36b04c21-521f-babb-382f-2a12c3ddef17}
+
+Followup:     MachineOwner
+---------
+
+quit:
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\atlmfc.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\concurrency.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\cpp_rest.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\Kernel.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\ObjectiveC.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\stl.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\Usb4Kd.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\Windows.Data.Json.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\Windows.Devices.Geolocation.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\Windows.Devices.Sensors.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\Windows.Media.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\windows.natvis'
+NatVis script unloaded from 'C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2606.22001.0_x64__8wekyb3d8bbwe\amd64\Visualizers\winrt.natvis'
+
+

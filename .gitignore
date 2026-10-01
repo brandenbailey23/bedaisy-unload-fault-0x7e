@@ -1,0 +1,14 @@
+# Never commit kernel dumps. See DUMPS.md for why.
+*.dmp
+*.DMP
+MEMORY.DMP
+
+# Crash-dump archives, in case anyone zips them up
+*.dmp.zip
+*.dmp.7z
+
+# Editor / OS noise
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

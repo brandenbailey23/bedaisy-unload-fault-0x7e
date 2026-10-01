@@ -1,0 +1,58 @@
+name: Add a reproduction
+description: You are seeing 0x7E in BEDaisy.sys with Memory Integrity enabled
+title: "[repro] 0x7E / BEDaisy.sys / <your Windows build>"
+labels: ["reproduction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for adding a reproduction. Independent reports are the whole point of this
+        repository - a vendor is far more likely to act on a fault with several hosts behind it
+        than on a single report.
+
+        Run `check-affected.ps1` from the repository root and paste its output into the issue
+        body. It is read-only, changes nothing, and does not include your username or machine
+        name.
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version and build
+      description: DisplayVersion and build number, e.g. "26H2, 26300.9550"
+      placeholder: 26H2, 26300.9550
+    validations:
+      required: true
+  - type: dropdown
+    id: hvci
+    attributes:
+      label: Memory Integrity (HVCI) state
+      description: What does your machine do with Memory Integrity enabled versus disabled?
+      options:
+        - Enabled - crashes
+        - Disabled - does not crash
+        - Enabled - does not crash
+    validations:
+      required: true
+  - type: input
+    id: bedaisy_hash
+    attributes:
+      label: BEDaisy.sys SHA-256
+      description: From check-affected.ps1. If it matches the reported build, say so.
+      placeholder: 184F28E4AC5C178AE05078F57AB54F3F3AE9864BC2FEA8CE20CB62AB8F3ECB7A
+    validations:
+      required: true
+  - type: textarea
+    id: analyze
+    attributes:
+      label: "!analyze -v output"
+      description: WinDbg output for your most recent dump, if you have it. Optional but very useful.
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else worth knowing
+      description: Which game, how quickly it crashes, whether a BattlEye reinstall changed anything,
+        other security software installed
+    validations:
+      required: false
