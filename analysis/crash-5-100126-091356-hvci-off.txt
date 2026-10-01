@@ -1,0 +1,59 @@
+# Crash 5 extract — 2026-10-01 09:13:56 — HVCI ***DISABLED*** (DECISIVE)
+#
+# Source: !analyze -v and kv on C:\Windows\MEMORY.DMP (full memory dump, 3,790,539,173 bytes,
+#         written 2026-10-01 09:15:30). Curated EXTRACT, not raw debugger output — see crash 4 note.
+#
+# THIS IS THE DECISIVE CRASH. Memory Integrity / HVCI was verified OFF for the entire run, and
+# the resulting signature and stack are identical to crash 4 (which had HVCI ON). The fault
+# therefore does not depend on HVCI.
+#
+# Trigger, observed directly: Siege reported "an anticheat update was required and it would
+# self-restart", the game closed, and the machine bugchecked 5 seconds later.
+
+HVCI STATE OF RECORD AT THIS CRASH
+    SecurityServicesConfigured  : {0}
+    SecurityServicesRunning     : {0}
+    HKLM\...\HypervisorEnforcedCodeIntegrity\Enabled : 0
+    Health sampler (30 s interval, 09:10:49 - 09:13:51): hvciRunning = False in EVERY sample
+    BEDaisy driver state, final two samples: Running
+    Bugcheck: 5 seconds after the final sample
+
+BUGCHECK_CODE:           7e   (SYSTEM_THREAD_EXCEPTION_NOT_HANDLED)
+BUGCHECK_P1:             ffffffffc0000005   (STATUS_ACCESS_VIOLATION)
+BUGCHECK_P2:             fffff80088bb0619
+BUGCHECK_P3:             fffff958fd46c4418
+BUGCHECK_P4:             fffff958fd46c3c30
+
+PROCESS_NAME:            System
+MODULE_NAME:             BEDaisy
+IMAGE_NAME:              BEDaisy.sys
+SYMBOL_NAME:             BEDaisy+1720619
+BUCKET_ID_FUNC_OFFSET:   1720619
+FAILURE_BUCKET_ID:       AV_BEDaisy!unknown_function
+AV.Type:                 Read
+Faulting.IP.Type:        Paged
+
+Faulting instruction (identical to crashes 1-4):
+    66448b5d00      mov     r11w,word ptr [rbp]
+
+Offset arithmetic (confirms +0x1720619):
+    0xfffff80088bb0619 - 0x1720619 = 0xfffff80087490000   (64 KB aligned driver base)
+
+STACK_TEXT (kv) — IDENTICAL frame-for-frame to crash 4:
+    fffff800`874a2e21 : BEDaisy+0x12e21
+    fffff800`87655ba2 : BEDaisy+0x1c5ba2
+    fffff800`874997a4 : BEDaisy+0x97a4          <-- FilterUnloadCallback
+    fffff800`638d5a13 : FLTMGR!FltpDoUnloadFilter+0xa3
+    fffff800`638d5dd4 : FLTMGR!FltpMiniFilterDriverUnload+0x194
+    fffff800`d20ecf8f : nt!IopLoadUnloadDriver+0x120
+    fffff800`d20958da : nt!ExpWorkerThread+0x29f
+    fffff800`d22b1af4 : nt!PspSystemThreadStartup+0x5a
+    fffff800`d22b1af4 : nt!KiStartSystemThread+0x34
+
+Same module offsets, same FLTMGR frames, same nt frames as crash 4 — only the load address
+differs. Several argument words are also byte-identical between the two crashes.
+
+Machine state at the moment of the fault (notable processes, names only):
+    TrustedInstaller.exe   msiexec.exe   ax_installer.exe
+    RainbowSix.exe  RainbowSix_BE.exe  BEService.exe
+    upc.exe  UplayService.exe  UplayWebCore.exe  UbisoftGameLauncher.exe

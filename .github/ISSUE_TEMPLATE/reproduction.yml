@@ -1,5 +1,5 @@
 name: Add a reproduction
-description: You are seeing 0x7E in BEDaisy.sys with Memory Integrity enabled
+description: You are seeing 0x7E in BEDaisy.sys at +0x1720619
 title: "[repro] 0x7E / BEDaisy.sys / <your Windows build>"
 labels: ["reproduction"]
 body:
@@ -13,6 +13,9 @@ body:
         Run `check-affected.ps1` from the repository root and paste its output into the issue
         body. It is read-only, changes nothing, and does not include your username or machine
         name.
+
+        **Note:** this defect is *not* related to Memory Integrity (HVCI). It reproduces with
+        HVCI both enabled and disabled, so please do not disable a security feature to test it.
   - type: input
     id: windows
     attributes:
@@ -22,14 +25,28 @@ body:
     validations:
       required: true
   - type: dropdown
+    id: trigger
+    attributes:
+      label: When did it crash?
+      description: The fault is in BEDaisy's driver-unload path, which is driven by BattlEye's
+        anticheat updater.
+      options:
+        - During / immediately after a BattlEye anticheat update, as the game closed
+        - As the game closed normally (no update)
+        - During or shortly after game launch
+        - Other / not sure
+    validations:
+      required: true
+  - type: dropdown
     id: hvci
     attributes:
       label: Memory Integrity (HVCI) state
-      description: What does your machine do with Memory Integrity enabled versus disabled?
+      description: Included for completeness only - this defect is not HVCI-dependent.
       options:
-        - Enabled - crashes
-        - Disabled - does not crash
-        - Enabled - does not crash
+        - Enabled - crashed
+        - Disabled - crashed
+        - Enabled - not sure
+        - Disabled - not sure
     validations:
       required: true
   - type: input
@@ -40,11 +57,21 @@ body:
       placeholder: 184F28E4AC5C178AE05078F57AB54F3F3AE9864BC2FEA8CE20CB62AB8F3ECB7A
     validations:
       required: true
+  - type: input
+    id: fault_address
+    attributes:
+      label: Fault address from the bugcheck
+      description: The second parameter of the 0x7E bugcheck. Addresses from this defect always
+        end in "0619", because BEDaisy's base is 64 KB-aligned and the offset is +0x1720619.
+      placeholder: fffff80088bb0619
+    validations:
+      required: true
   - type: textarea
     id: analyze
     attributes:
       label: "!analyze -v output"
-      description: WinDbg output for your most recent dump, if you have it. Optional but very useful.
+      description: WinDbg output for your most recent dump, if you have it. Most useful part is
+        the stack, which should run through FLTMGR!FltpDoUnloadFilter.
       render: text
     validations:
       required: false
@@ -52,7 +79,7 @@ body:
     id: notes
     attributes:
       label: Anything else worth knowing
-      description: Which game, how quickly it crashes, whether a BattlEye reinstall changed anything,
-        other security software installed
+      description: Which game, how many times it has happened, whether a BattlEye reinstall
+        changed anything, other security software installed (e.g. HP Wolf Security)
     validations:
       required: false
